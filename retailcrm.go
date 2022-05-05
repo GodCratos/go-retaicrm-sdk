@@ -27,6 +27,7 @@ func NewClient(domainName, apiKey string, debug bool) *Client {
 	}
 }
 
+//{WORKING WITH ORDERS
 func (c *Client) OrdersGet(parameters OrdersRequest) (*OrdersResponse, int, error) {
 	var dataResp OrdersResponse
 	param, err := query.Values(parameters)
@@ -41,3 +42,5 @@ func (c *Client) OrdersGet(parameters OrdersRequest) (*OrdersResponse, int, erro
 	json.NewDecoder(resp.Body).Decode(&dataResp)
 	return &dataResp, resp.StatusCode, nil
 }
+
+//WORKING WITH ORDERS}
