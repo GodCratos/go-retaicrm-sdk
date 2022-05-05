@@ -1,27 +1,27 @@
 ### Example usage: 
 
-# Интерфейсы sdk :
-#	orders :
-#		getByFilter
-
+ 
 ```go
+// Интерфейсы sdk :
+//  orders :
+//    getByFilter
+
 package main
 
-import (
-	"log"
-
-	retailcrm "github.com/godcratos/go-retaicrm-sdk"
+import (  
+  "log"
+  retailcrm "github.com/godcratos/go-retaicrm-sdk"
 )
-
-func main() {
-	client := retailcrm.NewClient("example.retailcrm.ru", "<your_api_key>", true)
-	filter := retailcrm.OrdersRequest{Filter: retailcrm.OrdersFilter{Ids: []int{156138}}, Page: 1}
-	orders, _, err := client.OrdersGet(filter)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-	log.Println(orders)
+ 
+ func main() {
+  client := retailcrm.NewClient("example.retailcrm.ru", "<your_api_key>", true)
+  filter := retailcrm.OrdersRequest{Filter: retailcrm.OrdersFilter{Ids: []int{156138}}, Page: 1}
+  orders, _, err := client.OrdersGet(filter)
+  if err != nil {
+  	log.Println(err)
+  	return
+  }
+  log.Println(orders)
 }
 
 ```
