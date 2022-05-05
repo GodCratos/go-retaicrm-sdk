@@ -1,6 +1,7 @@
 package retaicrm
 
-//{ORDERS
+//{GET ORDERS
+
 type OrdersRequest struct {
 	Filter OrdersFilter `url:"filter,omitempty"`
 	Limit  int          `url:"limit,omitempty"`
@@ -155,9 +156,27 @@ type Order struct {
 	Payments                      OrderPayments          `json:"payments,omitempty"`
 }
 
+//GET ORDERS}
+
+//{CREATE ORDER
+
+type OrderCreateResponse struct {
+	CreateResponse
+	Order    Order  `json:"order,omitempty"`
+	ErrorMsg string `json:"errorMsg"`
+}
+
+type CreateResponse struct {
+	Success bool `json:"success"`
+	ID      int  `json:"id,omitempty"`
+}
+
+//CREATE ORDER}
+
 //ORDERS}
 
 //{GENERAL STRUCT
+
 type Source struct {
 	Source   string `json:"source,omitempty"`
 	Medium   string `json:"medium,omitempty"`
