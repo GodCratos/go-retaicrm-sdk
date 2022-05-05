@@ -1,5 +1,9 @@
 ### Example usage: 
 
+# Интерфейсы sdk :
+#	orders :
+#		getByFilter
+
 ```go
 package main
 
