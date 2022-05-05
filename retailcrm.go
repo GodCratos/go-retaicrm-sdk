@@ -98,10 +98,10 @@ func (c *Client) OrderCreate(order *Order, site string) (*OrderCreateResponse, i
 	p.Add("site", site)
 
 	url := fmt.Sprintf("%s%s", fmt.Sprintf(baseUrl, c.DomainName), endpointOrderCreate)
-	resp, _ := c.sendPostRequest(url, strings.NewReader(p.Encode()))
-	/*if err != nil {
+	resp, err := c.sendPostRequest(url, strings.NewReader(p.Encode()))
+	if err != nil {
 		return nil, 0, err
-	}*/
+	}
 	json.NewDecoder(resp.Body).Decode(&bodyResp)
 	return &bodyResp, 0, nil
 }
