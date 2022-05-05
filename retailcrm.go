@@ -28,6 +28,10 @@ func NewClient(domainName, apiKey string, debug bool) *Client {
 }
 
 //{WORKING WITH ORDERS
+
+const ByID = "id"
+const ByExternalID = "externalId"
+
 func (c *Client) OrdersGet(parameters OrdersRequest) (*OrdersResponse, int, error) {
 	var dataResp OrdersResponse
 	param, err := query.Values(parameters)
