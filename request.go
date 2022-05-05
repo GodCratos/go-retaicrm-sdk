@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func (c *Client) SendGetRequest(url string) (*http.Response, error) {
+func (c *Client) sendGetRequest(url string) (*http.Response, error) {
 	if c.DomainName == "" || c.ApiKey == "" {
 		return nil, fmt.Errorf("domain name or api key parameters are not filled")
 	}
@@ -37,7 +37,7 @@ func (c *Client) SendGetRequest(url string) (*http.Response, error) {
 	return resp, nil
 }
 
-func (c *Client) SendPostRequest(url string, bodyReq io.Reader) (*http.Response, error) {
+func (c *Client) sendPostRequest(url string, bodyReq io.Reader) (*http.Response, error) {
 	if c.DomainName == "" || c.ApiKey == "" {
 		return nil, fmt.Errorf("domain name or api key parameters are not filled")
 	}

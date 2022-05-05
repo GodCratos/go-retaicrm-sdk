@@ -53,7 +53,7 @@ func (c *Client) OrdersGet(parameters OrdersRequest) (*OrdersResponse, int, erro
 		return &bodyResp, 0, err
 	}
 	url := fmt.Sprintf("%s%s", fmt.Sprintf(baseUrl, c.DomainName), fmt.Sprintf(endpointOrdersGet, param.Encode()))
-	resp, err := c.SendGetRequest(url)
+	resp, err := c.sendGetRequest(url)
 	if err != nil {
 		return &bodyResp, 0, err
 	}
@@ -98,7 +98,7 @@ func (c *Client) OrderCreate(order *Order, site string) (*OrderCreateResponse, i
 	p.Add("site", site)
 
 	url := fmt.Sprintf("%s%s", fmt.Sprintf(baseUrl, c.DomainName), endpointOrderCreate)
-	resp, _ := c.SendPostRequest(url, strings.NewReader(p.Encode()))
+	resp, _ := c.sendPostRequest(url, strings.NewReader(p.Encode()))
 	/*if err != nil {
 		return nil, 0, err
 	}*/
